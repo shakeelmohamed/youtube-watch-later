@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Watch Later</title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./everything.js"></script>
+</head>
+<body>
+    <h1>Watch Later</h1>
+    <ol id="list">
+    </ol>
+    <script type="text/javascript">
+        $(function() {
+            console.log("hello");
+            var hash = window.location.hash;
+            var regex = new RegExp("access_token=.*?&");
+            var token = regex.exec(hash)[0].replace("&", "").replace("access_token=", "");
+            console.log("token", token);
+
+            function onError(err) {
+                console.log("err");
+                console.log(err);
+            }
+
+            var watchLaterPlaylistID;
+
+            function onWatchLaterSuccess(data) {
+                console.log(data);
+                if (data.items) {
+                    for (var di in data.items) {
+                        var item = data.items[di].snippet;
+                        var videoID = item.resourceId.videoId;
+                        var out = "";
+                        out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + item.thumbnails.default.url + "\"><br>" + item.title + "</a>";
+                        out += " --- ";
+                        out += "<a target=\"_blank\" href=\"https://zenplayer.audio?v=" + videoID + "\">" + "Zen Audio Player" + "</a>";
+                        $("<li>" + out + "</li>").appendTo("#list");
+                    }
+                }
+                if (data.nextPageToken) {
+                    watchLater(token, watchLaterPlaylistID, data.nextPageToken, onWatchLaterSuccess, onError);
+                }
+            }
+
+            if (token) {
+                getChannelInfo(
+                    token,
+                    function(data) {
+                        console.log(data);
+                        watchLaterPlaylistID = data.items[0].contentDetails.relatedPlaylists.watchLater;
+                        watchLater(token, watchLaterPlaylistID, null, onWatchLaterSuccess, onError);
+                    },
+                    onError
+                );
+            }
+        });
+    </script>
+</body>
+</html>
