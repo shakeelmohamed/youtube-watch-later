@@ -30,8 +30,9 @@
                     for (var di in data.items) {
                         var item = data.items[di].snippet;
                         var videoID = item.resourceId.videoId;
+                        var thumbURL = (item.thumbnails && item.thumbnails.default) : item.thumbnails.default.url : "";
                         var out = "";
-                        out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + item.thumbnails.default.url + "\"><br>" + item.title + "</a>";
+                        out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
                         out += " --- ";
                         out += "<a target=\"_blank\" href=\"https://zenplayer.audio?v=" + videoID + "\">" + "Zen Audio Player" + "</a>";
                         $("<li>" + out + "</li>").appendTo("#list");
