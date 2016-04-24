@@ -31,6 +31,12 @@
                         var item = data.items[di].snippet;
                         var videoID = item.resourceId.videoId;
                         var thumbURL = (item.thumbnails && item.thumbnails.default) ? item.thumbnails.default.url : "";
+
+                        // Skip private videos, TODO: handle removed videos
+                        if (thumbURL === "" && item.title.toLowerCase() === "private video") {
+                            continue;
+                        }
+
                         var out = "";
                         out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
                         out += " --- ";
