@@ -30,7 +30,7 @@
                     for (var di in data.items) {
                         var item = data.items[di].snippet;
                         var videoID = item.resourceId.videoId;
-                        var thumbURL = (item.thumbnails && item.thumbnails.default) : item.thumbnails.default.url : "";
+                        var thumbURL = (item.thumbnails && item.thumbnails.default) ? item.thumbnails.default.url : "";
                         var out = "";
                         out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
                         out += " --- ";
