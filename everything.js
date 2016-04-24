@@ -18,9 +18,7 @@ function getChannelInfo(token, onData, onFail) {
     }, onData).fail(onFail);
 }
 
-// TODO: pagination, get data for all videos
 function watchLater(token, watchLaterID, page, onData, onFail) {
-    // return "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=" + watchLaterID + "&key=" + yt_key;
     var args = {
         key: yt_key,
         part: "snippet",
@@ -35,24 +33,3 @@ function watchLater(token, watchLaterID, page, onData, onFail) {
 
     $.getJSON("https://www.googleapis.com/youtube/v3/playlistItems", args, onData).fail(onFail);
 }
-
-// $(function() {
-//     auth(
-//         function(data) {
-//             console.log(data);
-//         },
-//         function(err) {
-//             console.log("err");
-//             console.log(err);
-//         }
-//     );
-// });
-    // getChannelInfo(
-    //     function(data) {
-    //         console.log(data);
-    //     },
-    //     function(err) {
-    //         console.log("err");
-    //         console.log(err);
-    //     }
-    // );
