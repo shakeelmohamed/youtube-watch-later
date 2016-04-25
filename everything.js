@@ -6,7 +6,7 @@ function euc(s) {
 }
 
 function auth() {
-    window.location.href = "https://accounts.google.com/o/oauth2/auth" + "?client_id=" + euc(oauth2_client) + "&response_type=token" + "&scope=" + euc("https://www.googleapis.com/auth/youtube.readonly") + "&mine=true" + "&redirect_uri=" + euc(window.location.href + "welcome.html");
+    window.location.href = "https://accounts.google.com/o/oauth2/auth" + "?client_id=" + euc(oauth2_client) + "&response_type=token" + "&scope=" + euc("https://www.googleapis.com/auth/youtube.readonly") + "&mine=true" + "&redirect_uri=" + euc(window.location.href);
 }
 
 function getChannelInfo(token, onData, onFail) {
