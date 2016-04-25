@@ -7,9 +7,9 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 1.5;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
 }
 
 h1 { font-size: 30px; }
@@ -22,11 +22,6 @@ h6 { font-size: 11px; }
 
 // Body text
 // --------------------------------------------------
-
-p {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
 
 small {
   font-size: 90%;
@@ -44,9 +39,17 @@ blockquote {
   color: #555;
 }
 
+// Text utilities
+.text-muted { color: $brand-gray; }
+.text-danger { color: $brand-red; }
+
 .text-emphasized {
   font-weight: bold;
-  color: $text-gray-dark;
+  color: #333;
+}
+
+.text-small {
+  font-size: 12px;
 }
 
 // Lists
@@ -54,7 +57,7 @@ blockquote {
 
 ul,
 ol {
-  padding-left: 0;
+  padding: 0;
   margin-top: 0;
   margin-bottom: 0;
 }

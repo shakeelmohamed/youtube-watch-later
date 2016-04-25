@@ -67,11 +67,3 @@
   padding-left: $grid-gutter;
   vertical-align: top;
 }
-
-// Centers content horizontally. Can be used inside or outside the grid.
-.centered {
-  display: block;
-  float: none;
-  margin-right: auto;
-  margin-left: auto;
-}
