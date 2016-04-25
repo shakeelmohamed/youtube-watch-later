@@ -3,68 +3,12 @@
 <head>
     <title>YouTube Watch Later</title>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/primer-css/css/primer.css"></script>
     <script type="text/javascript" src="everything.js"></script>
 </head>
 <body>
-    <h1>Watch Later</h1>
-    <ol id="list">
+    <h1 class="text-center">Watch Later</h1>
+    <ol id="list" class="text-center">
     </ol>
-    <script type="text/javascript">
-        $(function() {
-            if (window.location.href.indexOf("access_token") > 0) {
-                var hash = window.location.hash;
-                var regex = new RegExp("access_token=.*?&");
-                var token = regex.exec(hash)[0].replace("&", "").replace("access_token=", "");
-                console.log("token", token);
-
-                function onError(err) {
-                    console.log("err");
-                    console.log(err);
-                }
-
-                var watchLaterPlaylistID;
-
-                function onWatchLaterSuccess(data) {
-                    console.log(data);
-                    if (data.items) {
-                        for (var di in data.items) {
-                            var item = data.items[di].snippet;
-                            var videoID = item.resourceId.videoId;
-                            var thumbURL = (item.thumbnails && item.thumbnails.default) ? item.thumbnails.default.url : "";
-
-                            // Skip private videos, TODO: handle removed videos
-                            if (thumbURL === "" && item.title.toLowerCase() === "private video") {
-                                continue;
-                            }
-
-                            var out = "";
-                            out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
-                            out += " --- ";
-                            out += "<a target=\"_blank\" href=\"https://zenplayer.audio?v=" + videoID + "\">" + "Zen Audio Player" + "</a>";
-                            $("<li>" + out + "</li>").appendTo("#list");
-                        }
-                    }
-                    if (data.nextPageToken) {
-                        watchLater(token, watchLaterPlaylistID, data.nextPageToken, onWatchLaterSuccess, onError);
-                    }
-                }
-
-                if (token) {
-                    getChannelInfo(
-                        token,
-                        function(data) {
-                            console.log(data);
-                            watchLaterPlaylistID = data.items[0].contentDetails.relatedPlaylists.watchLater;
-                            watchLater(token, watchLaterPlaylistID, null, onWatchLaterSuccess, onError);
-                        },
-                        onError
-                    );
-                }
-            }
-            else {
-                auth();
-            }
-        });
-    </script>
 </body>
 </html>
