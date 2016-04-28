@@ -50,6 +50,17 @@ $(function() {
         function onError(err) {
             console.log("err");
             console.log(err);
+
+            // TODO: prevent refresh loop by using sessionStorage
+            // The token likely expired, refresh
+            if (err.responseJSON &&
+                err.responseJSON.error &&
+                err.responseJSON.error.code === 401 &&
+                window.location.href.indexOf("#") !== -1 &&
+                window.location.href.indexOf("access_token") !== -1
+                ) {
+                window.location.href.replace(/#.*/, "");
+            }
         }
 
         var watchLaterPlaylistID;
