@@ -1,0 +1,25 @@
+{
+  "name": "youtube-watch-later",
+  "description": "",
+  "main": "everything.js",
+  "authors": [
+    "Shakeel Mohamed <shakeel@shakeelmohamed.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "youtube"
+  ],
+  "homepage": "https://github.com/shakeelmohamed/youtube-watch-later",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "primer-css": "^3.0.1",
+    "jquery": "^2.2.3"
+  }
+}
