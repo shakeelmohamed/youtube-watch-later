@@ -60,7 +60,7 @@ $(function() {
                 window.location.hash.indexOf("access_token") !== -1
                 ) {
                 window.location.hash = "";
-                window.location.href = window.location.href.replace(/#.*/, "");
+                window.location.href = window.location.href.replace("/#", "");
             }
         }
 
