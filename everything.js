@@ -64,7 +64,7 @@ $(function() {
         }
 
         var watchLaterPlaylistID;
-        var count = 0;
+        var count = 1;
         function onWatchLaterSuccess(data) {
             console.log(data);
             if (data.items) {
