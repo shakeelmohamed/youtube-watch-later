@@ -82,7 +82,9 @@ $(function() {
 
                     var out = "";
                     out += count++;
-                    out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
+                    out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>";
+                    out += count++;
+                    out += " &nbsp; " + item.title + "</a>";
                     out += " --- ";
                     out += "<a target=\"_blank\" href=\"https://zenplayer.audio?v=" + videoID + "\">" + "Zen Audio Player" + "</a>";
                     $("<li>" + out + "</li>").appendTo("#list");
