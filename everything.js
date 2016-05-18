@@ -56,8 +56,7 @@ $(function() {
             if (err.responseJSON &&
                 err.responseJSON.error &&
                 err.responseJSON.error.code === 401 &&
-                window.location.href.indexOf("#") !== -1 &&
-                window.location.hash.indexOf("access_token") !== -1
+                window.location.href.indexOf("#") !== -1
                 ) {
                 window.location.hash = "";
                 window.location.href = window.location.href.replace("/#", "");
