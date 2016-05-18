@@ -69,6 +69,7 @@ $(function() {
         function onWatchLaterSuccess(data) {
             console.log(data);
             if (data.items) {
+                var count = 0;
                 for (var di in data.items) {
                     var item = data.items[di].snippet;
                     var videoID = item.resourceId.videoId;
@@ -80,6 +81,7 @@ $(function() {
                     }
 
                     var out = "";
+                    out += count++;
                     out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>" + item.title + "</a>";
                     out += " --- ";
                     out += "<a target=\"_blank\" href=\"https://zenplayer.audio?v=" + videoID + "\">" + "Zen Audio Player" + "</a>";
