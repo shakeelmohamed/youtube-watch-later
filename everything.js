@@ -65,11 +65,11 @@ $(function() {
         }
 
         var watchLaterPlaylistID;
-
+        var count = 0;
         function onWatchLaterSuccess(data) {
             console.log(data);
             if (data.items) {
-                var count = 0;
+                
                 for (var di in data.items) {
                     var item = data.items[di].snippet;
                     var videoID = item.resourceId.videoId;
