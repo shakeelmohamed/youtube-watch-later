@@ -81,7 +81,6 @@ $(function() {
                     }
 
                     var out = "";
-                    out += count++;
                     out += "<a target=\"_blank\" href=\"https://www.youtube.com/watch?v=" + videoID + "\">" + "<img src=\"" + thumbURL + "\"><br>";
                     out += count++;
                     out += " &nbsp; " + item.title + "</a>";
