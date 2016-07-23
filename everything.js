@@ -107,11 +107,7 @@ $(function() {
     }
     else {
         // If URL ends in /# prevent hitting the Google auth 400 page
-        window.location.href = window.location.href.replace("/#", "");
-        // Make sure there's a trailing slash
-        if (window.location.href[window.location.href.length - 1] !== "/") {
-            window.location.href += "/";
-        }
+        window.location.href = window.location.href.replace("/#", "/");
         auth();
     }
 });
