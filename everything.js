@@ -7,7 +7,7 @@ function euc(s) {
 
 function auth() {
     // var redirect_uri = window.location.href;
-    var redirect_uri = "http://shakeelmohamed.com/youtube-watch-later/";
+    var redirect_uri = window.location.protocol + "//shakeelmohamed.com/youtube-watch-later/";
     var path = window.location.pathname;
     // if (path.length > 0 && path[path.length - 1] === "/") {
     //     redirect_uri = redirect_uri.replace(window.location.pathname, path);
