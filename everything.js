@@ -6,11 +6,12 @@ function euc(s) {
 }
 
 function auth() {
-    var redirect_uri = window.location.href;
+    // var redirect_uri = window.location.href;
+    var redirect_uri = "http://shakeelmohamed.com/youtube-watch-later/";
     var path = window.location.pathname;
-    if (path.length > 0 && path[path.length - 1] === "/") {
-        redirect_uri = redirect_uri.replace(window.location.pathname, path);
-    }
+    // if (path.length > 0 && path[path.length - 1] === "/") {
+    //     redirect_uri = redirect_uri.replace(window.location.pathname, path);
+    // }
     window.location.href = "https://accounts.google.com/o/oauth2/auth" + "?client_id=" + euc(oauth2_client) + "&response_type=token" + "&scope=" + euc("https://www.googleapis.com/auth/youtube.readonly") + "&mine=true" + "&redirect_uri=" + euc(redirect_uri);
 }
 
